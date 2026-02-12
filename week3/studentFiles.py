@@ -6,22 +6,24 @@ class students:
         self.students_list = list
         self.valid = 0
         self.non_valid = 0
-        self.validity()
+        self.validity_count()
 
-    def validity(self):        
+    def validity(self,student):
+        if student["mark"].isdigit() and int(student['mark'])<= 100 and int(student['mark']) >= 0:
+            return True
+        else:
+            return False
+        
+    def validity_count(self):        
         for student in self.students_list:
-            if student["mark"].isdigit() and int(student['mark'])<= 100 and int(student['mark']) >= 0:
+            if self.validity(student):
                 self.valid += 1
         else:
             self.non_valid +=1
-        
 
-
-     
-        
     def print_Students(self):
         for student in self.students_list:
-            if student["mark"].isdigit() and int(student['mark'])<= 100 and int(student['mark']) >= 0:
+            if self.validity(student):
                 print(f"Name {student["name"]}\t Marks: {student["mark"]}\n")
             else:
                 print(f"Name {student["name"]}\t Marks Invalid\n")
@@ -29,7 +31,7 @@ class students:
     def students_average(self):
         sum  = 0
         for student in self.students_list:
-            if student['mark'].isdigit():
+            if self.validity(student):
                 sum += int(student['mark'])
             
         avg = sum/len(self.students_list)
