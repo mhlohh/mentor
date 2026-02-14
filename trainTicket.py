@@ -12,15 +12,17 @@ try:
         elif x ==1:
             print(f"Available seats:{availableSeats}")
             tickets = int(input(f"Enter number of tickets: "))
+            print()
             if tickets > availableSeats or tickets < 1:
                 raise ValueError("Value out of bound")
             price = int(input("Enter ticket price: "))
+            print()
             if price < 1 or price > 20000: 
                 raise ValueError("Value out of bound❌")
             availableSeats -= tickets
         
             print(f"Booking Succesful☑️")
-            print(f"Totla Cost: {tickets * price}")
+            print(f"Total Cost: {tickets * price}")
             print(f"Remaining seats: {availableSeats}")       
 except ValueError as e:
     print("Invalid Input❌")
