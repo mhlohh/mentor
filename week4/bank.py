@@ -12,7 +12,7 @@ class BankAccount:
         print()
         print(f"{amount} is deposited ☑️\n")
         
-    def withdrawl(self,amount):
+    def withdraw(self,amount):
         if amount > self.balance:
             raise ValueError("Insufficent Fund")
         if amount < 1:
@@ -47,7 +47,7 @@ try:
             print()
             amount = int(input("Enter the withdrawl amount: "))
             print()
-            costumer.withdrawl(amount)
+            costumer.withdraw(amount)
         elif x == 3:
             costumer.display()
         
