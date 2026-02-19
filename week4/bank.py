@@ -5,13 +5,18 @@ class BankAccount:
         self.balance = balance
     
     def deposit(self,amount):
+        if amount < 1:
+            print()
+            raise ValueError("Invalid input ❌\n")
         self.balance += amount
         print()
         print(f"{amount} is deposited ☑️\n")
         
     def withdrawl(self,amount):
         if amount > self.balance:
-            raise print("Insufficent Fund")
+            raise ValueError("Insufficent Fund")
+        if amount < 1:
+            raise ValueError("Value out of bound ❌")
         self.balance -= amount
         print(f"{amount} is withdrawl sucessfully ☑️\n")
     
@@ -22,8 +27,8 @@ class BankAccount:
         print(f"Balance: {self.balance}\n")
        
 
-name = "Muhsil NR"
-balance = 12000
+name = "Mushil NR"
+balance = 1200000
 number = 23456789
 costumer = BankAccount(name,number,balance)
 try:
@@ -31,7 +36,7 @@ try:
         print("Deposit Money[1]\tWithdraw Money[2]\tCheck balance[3]\tQuit[4]")        
         x = int(input("Input: "))
         if x < 1 or x > 4:
-            raise print("Input out of bound❌")
+            raise ValueError("Input out of bound❌")
         if x == 4:
             break
         elif x == 1:
@@ -47,5 +52,6 @@ try:
             costumer.display()
         
             
-except ValueError as e:
-    raise ValueError
+except ValueError:
+    print()
+    print("Invalid input❌\n")
