@@ -12,29 +12,25 @@ class Payment:
 class NormalMethod(Payment):
     
     def __init__(self,amount):
-        self.paymet_method = "Normal Payment"
-        super().__init__(amount,self.paymet_method)
+        
+        super().__init__(amount,"Normal Payment")
         
 class CreditCardPayment(Payment):
     
     def __init__(self,amount):
-        self.payment_method = "Credit Card Payment"
-        super().__init__(amount,self.payment_method)
+        super().__init__(amount,"Credit Card Payment")
 
     
 class UPIPayment(Payment):
     def __init__(self,amount):
-        self.payment_method = "UPI Payment"
-        super().__init__(amount,self.payment_method)
+        
+        super().__init__(amount,"UPI Payment")
         
     
 class WalletPayment(Payment):
     def __init__(self,amount):
-        self.payment_method = "Wallet Payment"
-        super().__init__(amount,self.payment_method)
+        super().__init__(amount,"Wallet Payment")
         
-    
-
 
 try:
     amount = int(input("\nEnter Amount: "))
@@ -42,19 +38,20 @@ try:
     
     x = int(input("Enter the Input: "))
     print()
+    pmt = None
     if x < 1 or x > 4:
         raise ValueError("Invalid Input❌")
     elif x == 1:
         pmt = NormalMethod(amount)
-        pmt.pay()
     elif x == 2:
         pmt = UPIPayment(amount)
-        pmt.pay()
+        
     elif x == 3:
         pmt = CreditCardPayment(amount)
-        pmt.pay()
     elif x == 4:
         pmt = WalletPayment(amount)
+    if pmt:
         pmt.pay()
+
 except ValueError as e:
     print(f"Value Erro: {e}")
