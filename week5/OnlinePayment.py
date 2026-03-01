@@ -1,27 +1,46 @@
+"""What we are doing is we are overriding the pay method with each 
+Sub Class Therefore creating a polymorphism"""
 class Payment:
-
-    def pay(self,amount):
-        print(f"Normal Method: {amount}")
-
-class CreditCardPayment:
-    
-    def pay(self,amount):
-        print(f"Normal Method: {amount}")
+    def __init__(self,amount):
+        self.amount = amount
         
-class UPIPayment:
-    
-    def pay(self,amount):
-        print(f"UPI Method: {amount}")
+    def pay(self):
+        print("Payment Processing...")
+        print(f"Payment Method: Normal {self.amount}")
         
-class WalletPayment:
+class CreditCardPayment(Payment):
+    def __init__(self, amount):
+        super().__init__(amount)
     
-    def pay(self,amount):
-        print(f"Wallet Method: {amount}")
+    def pay(self):
+        print("Payment Processing...")
+        print(f"Payment Method: Normal {self.amount}")
 
-amount = 1000    
-pay = [Payment(),CreditCardPayment(),UPIPayment(),WalletPayment()]
+class UPIPayment(Payment):
+    def __init__(self,amount):
+        super().__init__(amount)
+    
+    def pay(self):
+        print("Payment Processing...")
+        print(f"Payment Method: UPI {self.amount}")
+        
+class WalletPayment(Payment):
+    def __init__(self, amount):
+        super().__init__(amount)
+    
+    def pay(self):
+        print("Payment Processing...")
+        print(f"Payment Method: Wallet {self.amount}")
+        
 
-for pmt in pay:
+payments = [
+    Payment(1000),
+    CreditCardPayment(300),
+    UPIPayment(4000),
+    WalletPayment(3000)
+]
+
+for pmt in payments:
     print()
-    pmt.pay(amount)
+    pmt.pay()
     print()
