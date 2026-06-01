@@ -1,3 +1,5 @@
+from functools import reduce
+
 #Lesson1 Higher Order Function in Python
 
 def apply(func,n):
@@ -41,3 +43,8 @@ print(sorted_students)
 ● Commonly used with map(), filter(), reduce(), and sorted().
 ● Avoids defining separate functions for one-time use."""
 
+#Reduce Function
+#This function iterate throug list and fucntion apply cumulatively like x += list[i]
+
+total = reduce(lambda x,y :x+y,numbers )
+print(f"total: {total}")
