@@ -19,24 +19,24 @@ while True:
     print(f"Computer Picked: {computer_pick}")
     if user_input == computer_pick:
         print("Tie!")
-    elif user_input == option[0] and computer_pick == option[1]:
+    elif ((user_input == option[0] and computer_pick == option[1])
+          or
+          (user_input == option[1] and computer_pick == option[2])
+          or
+          (user_input == option[2] and computer_pick == option[0])
+          ):
         print("User Get Point")
         user_score += 1
-    elif user_input == option[0] and computer_pick == option[2]:
+    elif(
+        (user_input == option[1] and computer_pick == option[0])
+        or
+        (user_input == option[2] and computer_pick == option[1])
+        or
+        (user_input == option[0] and computer_pick == option[2])
+    ):
         print("Computer Get Point!")
         computer_score += 1
-    elif user_input == option[1] and computer_pick == option[0]:
-        computer_score += 1
-        print("Computer get Score")
-    elif user_input == option[1] and computer_pick == option[2]:
-        user_score += 1
-        print("User get Score")
-    elif user_input == option[2] and computer_pick == option[0]:
-        user_score += 1
-        print("User get Score")
-    elif user_input == option[2] and computer_pick == option[1]:
-        computer_score += 1
-        print("Computer get Score")
+        
 print()
 print("-----Score----")
 print(f"User Scor: {user_score}")
