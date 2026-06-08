@@ -1,0 +1,5 @@
+Hello world this is some text for this app!.
+Your raw typing speed based purely on the number of keystrokes divided by 5.
+The true measure of your speed, calculated by taking the Gross WPM and subtracting uncorrected errors.
+Subscribe to Tech With Tim on YouTUbe.
+The quick brown fox jumped over the rest of the sentence that I forgot.
